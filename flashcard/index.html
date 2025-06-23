@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards de Biologia Interativos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .cartao {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .cartao:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .cartao__conteudo {
+            padding: 20px;
+        }
+        .cartao h3 {
+            color: #2e8b57;
+            margin-top: 0;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        .cartao__conteudo__pergunta {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+        .cartao__conteudo__resposta {
+            color: #555;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 15px;
+            min-height: 60px;
+            display: none; /* Escondido inicialmente */
+            margin-top: 10px;
+            border-left: 4px solid #2e8b57;
+            animation: fadeIn 0.5s ease;
+        }
+        .cartao__conteudo__resposta.visivel {
+            display: block; /* Mostrar quando clicado */
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9em;
+            padding: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Ícone de seta para indicar que é clicável */
+        .cartao::after {
+            content: '↓';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #2e8b57;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+        .cartao.ativo::after {
+            content: '↑';
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 style="text-align: center; color: #2e8b57;">Flashcards de Biologia</h1>
+        <section id="container">
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Biologia Celular</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é fotossíntese?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Processo realizado por plantas, algas e algumas bactérias para converter energia luminosa em energia química (glicose), liberando oxigênio como subproduto.
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Genética</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é o DNA?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Ácido desoxirribonucleico, molécula helicoidal que contém todas as instruções genéticas para o desenvolvimento, funcionamento e reprodução de todos os organismos vivos.
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Ecologia</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que é uma cadeia alimentar?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Sequência linear de organismos onde cada um serve de alimento para o próximo nível trófico, mostrando o fluxo de energia e nutrientes em um ecossistema.
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Anatomia Humana</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        Qual a função do sistema circulatório?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Transportar oxigênio, nutrientes, hormônios e resíduos metabólicos através do sangue, além de ajudar na defesa imunológica e regulação térmica.
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Botânica</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        Qual a diferença entre monocotiledôneas e dicotiledôneas?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Monocotiledôneas têm um cotilédone, folhas com nervuras paralelas e raiz fasciculada. Dicotiledôneas têm dois cotilédones, folhas com nervuras reticulares e raiz axial.
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao__conteudo">
+                    <h3>Zoologia</h3>
+                    <div class="cartao__conteudo__pergunta">
+                        O que são animais invertebrados?
+                    </div>
+                    <div class="cartao__conteudo__resposta">
+                        Animais que não possuem coluna vertebral, representando 95% das espécies animais. Inclui artrópodes, moluscos, anelídeos, cnidários e poríferos.
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartoes = document.querySelectorAll('.cartao');
+            
+            cartoes.forEach(cartao => {
+                cartao.addEventListener('click', function() {
+                    // Alternar classe 'ativo' no cartão clicado
+                    this.classList.toggle('ativo');
+                    
+                    // Encontrar a resposta dentro deste cartão
+                    const resposta = this.querySelector('.cartao__conteudo__resposta');
+                    
+                    // Alternar a visibilidade da resposta com animação
+                    resposta.classList.toggle('visivel');
+                    
+                    // Opcional: fechar outros cartões abertos
+                    /*
+                    cartoes.forEach(outroCartao => {
+                        if (outroCartao !== cartao) {
+                            outroCartao.classList.remove('ativo');
+                            outroCartao.querySelector('.cartao__conteudo__resposta').classList.remove('visivel');
+                        }
+                    });
+                    */
+                });
+            });
+        });
+    </script>
+</body>
+</html>
